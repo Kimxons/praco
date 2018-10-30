@@ -1,9 +1,11 @@
 from django.db import models
+from django.utils import timezone
 
 class Lecturer(models.Model):
 	pf=models.CharField(max_length=30,default="222")
 	name = models.CharField(max_length=50)
 	unit_name = models.CharField(null=True,max_length=50)
+	date_joined = models.DateField(blank=True,null=True)
         
 class Student(models.Model):
 	reg = models.CharField(max_length=30, default="0101")

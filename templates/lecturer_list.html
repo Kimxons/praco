@@ -1,0 +1,14 @@
+<div>
+    <h1><a href="/">Campus pride</a></h1>
+</div>
+
+
+{% for lecturer in lecturers %}
+<div>
+    <p>date_joined: {{ lecturer.date_joined }}</p>
+    <h1><a href="">{{ lecturer.pf }}</a></h1>
+    <h1><a href="">{{ lecturer.name }}</a></h1>
+    <h1><a href="">{{ lecturer.unit_name }}</a></h1>
+    <p>{{ post.text|linebreaksbr }}</p>
+</div>
+{% endfor %}

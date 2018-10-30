@@ -1,15 +1,9 @@
 from django.shortcuts import get_object_or_404, render
-
-from django.http import HttpResponse
 from .models import Lecturer
+from django.utils import timezone
+from django.http import HttpResponse
 
-def index(request):
-	lecturer_list = Lecturer.objects.all()
-	context = {'lecturer_list' : lecturer_list}
-	return render(request, 'mapper/index.html', context)
-
-def detail(request, lecturer_id):
-	lecturer = get_object_or_404(Lecturer, pk = lecturer_id)
-	return render(request, 'mapper/detail.html', {'lecturer' : lecturer})
-
+def lecturer_list(request):
+	lecturers = Lecturer.objects.filter(date_joined = timezone.now()).order_by('date_joined')
+	return render(request, 'mapper/lecturer.html',{'lecturers':lecturers})
 
